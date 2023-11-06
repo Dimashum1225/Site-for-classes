@@ -8,8 +8,8 @@
 <body>
     <h1>Add User Data</h1>
 
-    <form action="/dashboard/user-data" method="post">
-        <label for="nickname">Логин</label>
+    <form action="/dashboard/user-data" method="post" enctype="multipart/form-data">
+        <label for="nickname">Nickname</label>
         <input type="text" name="nickname" id="nickname"/>
 
         <label for="avatarUrl">Аватар</label>

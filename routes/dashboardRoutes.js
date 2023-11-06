@@ -2,6 +2,33 @@ const express = require('express');
 const router = express.Router();
 const UserDetails = require('../models/UserDetails');
 const User = require('../models/user');
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, '/public/img/avatars');
+    },
+    filename: (req, file, cb) => {
+        const ext = path.extname(file.originalname);
+        const filename = file.fieldname + '-' + Date.now() + ext;
+        cb(null, filename);
+    }
+});
+
+const upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        const filetypes = /jpeg|jpg|png/;
+        const mimetype = filetypes.test(file.mimetype);
+        const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+        if (mimetype && extname) {
+            return cb(null, true);
+        } else {
+            cb('Error: Images only!');
+        }
+    }
+}).single('avatar');
 
 router.get('/', (req, res) => {
     if (!req.session.user || req.session.user.role !== 'admin') {
@@ -35,33 +62,34 @@ router.post('/user-data', async (req, res) => {
         return res.redirect('/dashboard');
     }
 
-    try {
-        let userDetails = await UserDetails.findOne({ user: req.session.user._id });
-
-        if (!userDetails) {
-            userDetails = new UserDetails({
-                nickname: req.body.nickname,
-                avatarUrl: req.body.avatarUrl,
-                about: req.body.about,
-                user: req.session.user._id,
-            });
-        } else {
-            userDetails.nickname = req.body.nickname;
-            userDetails.avatarUrl = req.body.avatarUrl;
-            userDetails.about = req.body.about;
+    upload(req, res, async (err) => {
+        if (err) {
+            return res.render('UserDataForm', { session: req.session, error: err });
         }
 
-        await userDetails.save();
+        let userDetails = await UserDetails.findOne({ user: req.session.user._id });
 
-        const user = await User.findById(req.session.user._id);
-        user.userDetails = userDetails._id;
-        await user.save();
+        if (userDetails) {
+            userDetails.nickname = req.body.nickname;
+            userDetails.about = req.body.about;
+            if (req.file && req.file.filename) { // Добавлено условие для проверки наличия файла и его имени
+                userDetails.avatarUrl = '/public/img/avatars/' + req.file.filename;
+            }
+            await userDetails.save();
+        } else {
+            userDetails = new UserDetails({
+                user: req.session.user._id,
+                nickname: req.body.nickname,
+                about: req.body.about
+            });
+            if (req.file && req.file.filename) { // Добавлено условие для проверки наличия файла и его имени
+                userDetails.avatarUrl = '/public/img/avatars/' + req.file.filename;
+            }
+            await userDetails.save();
+        }
 
-        res.redirect('/dashboard');
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Ошибка на сервере');
-    }
+        res.redirect('/dashboard/user-data');
+    });
 });
 
 module.exports = router;
