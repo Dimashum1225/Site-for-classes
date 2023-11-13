@@ -3,16 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <title>my node.js_site</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 1em;
+        }
+
+        nav img {
+            margin-right: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content li {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content li:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+
 </head>
 <body>
-    <nav>
-        <a href="/">Главная страница оформлена</a>
-        <% if (session && session.isAuthenticated) { %>
-        <a href="/logout">Выход</a>
-        <% }else{ %>
-            <a href="/login">Вход</a>
-            <a href="/register">Регистрация</a>
-        <% } %>
-    </nav>
+    <div>
+        <nav>
+            <img src="/фото4.ico" alt="EternaTwist" style="height: 50px;">
+            <a href="/">Главная страница</a>
+            <a href="#">Участники сайта</a>
+            <a href="#">О разработчиках</a>
+            <div class="dropdown">
+                <ul class="dropdown-content">
+                    <li><a href="#">Пользователь 1</a></li>
+                    <li><a href="#">Пользователь 2</a></li>
+                    <li><a href="#">Пользователь 3</a></li>
+                </ul>
+            </div>
+            <a href="#">Новости</a>
+            <a href="#">Должности</a>
+            <% if (session && session.isAuthenticated) { %>
+            <a href="/logout">Выход</a>
+            <% }else{ %>
+                <a href="/login">Вход</a>
+                <a href="/register">Регистрация</a>
+            <% } %>
+        </nav>
+    </div>
+
 </body>
 </html>
