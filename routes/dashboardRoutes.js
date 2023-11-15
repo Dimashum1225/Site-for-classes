@@ -4,6 +4,15 @@ const UserDetails = require('../models/UserDetails');
 const User = require('../models/user');
 const multer = require('multer');
 const path = require('path');
+const { fstat } = require('fs');
+const user = require('../models/user');
+
+function checkAuth(req, res, next) {
+    if (!req.session.user || (req.session.user.role !== 'admin' && req/ session.user.role !== 'user')) {
+        return res. redirect('/login');
+    }
+    next();
+}
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -37,14 +46,21 @@ router.get('/', (req, res) => {
     res.render('dashboard', { session: req.session });
 });
 
-router.get('/user-data', (req, res) => {
-    if (req.session.user.role !== 'admin') {
-        return res.redirect('/dashboard');
+router.get('/user-data', checkAuth, async (req, res) => {
+    let userDetails = await UserDetails.findOne({ user: req.session.user._id });
+    if (!userDetails) {
+        userDetails = new UserDetails({
+            user: req.session.user._id,
+            nickname: '',
+            about:'',
+            avatarUrl:''
+        });
+        await userDetails.save();
     }
-    res.render('UserDataForm', { session: req.session });
+    res.render('UserDataForm', { session: req.session, userDetails: userDetails });
 });
 
-router.get('/profile/:id', async (req, res) => {
+router.get('/profile/:id', checkAuth, async (req, res) => {
     try {
         const userDetails = await UserDetails.findOne({ user: req.params.id }).populate('user');
         if (!userDetails) {
@@ -63,33 +79,62 @@ router.post('/user-data', async (req, res) => {
     }
 
     upload(req, res, async (err) => {
-        if (err) {
-            return res.render('UserDataForm', { session: req.session, error: err });
+        if (err){
+            return res.render('userDataFrom', {session: req.session, error: err});
         }
 
-        let userDetails = await UserDetails.findOne({ user: req.session.user._id });
+    let userDetails;
 
-        if (userDetails) {
-            userDetails.nickname = req.body.nickname;
-            userDetails.about = req.body.about;
-            if (req.file && req.file.filename) { // Добавлено условие для проверки наличия файла и его имени
-                userDetails.avatarUrl = '/public/img/avatars/' + req.file.filename;
+    userDetails = await UserDetails.findOne({ user: req.session.user._id });
+
+    if (userDetails) {
+        userDetails.nickname = req.body.nickname;
+        userDetails.about = req.body.about;
+
+        if (req.file) {
+            const oldAvatarPath = userDetails.avatarUrl ? path.join(__dirname, '..', 'public', userDetails.avatarUrl) : null;
+
+            userDetails.avatarUrl = 'img/avatars/' + req.file.filename;
+
+            if (oldAvatarPath && fstat.existsSync(oldAvatarPath)) {
+                fstat.unlinkSync(oldAvatarPath);
             }
-            await userDetails.save();
-        } else {
-            userDetails = new UserDetails({
-                user: req.session.user._id,
-                nickname: req.body.nickname,
-                about: req.body.about
-            });
-            if (req.file && req.file.filename) { // Добавлено условие для проверки наличия файла и его имени
-                userDetails.avatarUrl = '/public/img/avatars/' + req.file.filename;
-            }
-            await userDetails.save();
         }
+
+        await userDetails.save();
+    } else {
+
+        userDetails = new UserDetails({
+            user: req.body.user,
+            nickname: req.body.nickname,
+            about: req.body.about,
+            avatarUrl: req.file ? '/img/avatars/' + req.file.filename : null,
+        });
+        await userDetails.save();
+    }
 
         res.redirect('/dashboard/user-data');
     });
 });
+
+router.post('/profile/:id/delete-avatar', async (req, res) => {
+    const userDetails = await UserDetails.findOne({ user: req.params.id });
+
+    if (!userDetails) {
+        return res.redirect('/bashboard');
+    }
+
+    if (userDetails.avatarUrl) {
+        const filePath = path.join(_dirname, '..', 'public', userDetails.avatarUrl);
+        fstat.unlinkSync(filePath);
+    }
+
+    userDetails.avatarUrl = null;
+    await userDetails.save();
+
+    res.redirect('/dashboard/profile/${req.params.id}');
+});
+
+
 
 module.exports = router;

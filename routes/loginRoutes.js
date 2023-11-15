@@ -3,7 +3,10 @@ const router = express.Router();
 const loginController = require('../controllers/loginController');
 
 router.get('/', (req, res) => {
-    res.render('login');
+    if (req.session.isAuthenticated) {
+        return res.send('Вы уже фвторизованы');
+    }
+    res.render('login', { session: req.session });
 });
 
 router.post('/', loginController.login);
