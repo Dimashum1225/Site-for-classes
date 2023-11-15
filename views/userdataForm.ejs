@@ -10,23 +10,22 @@
 
     <form action="/dashboard/user-data" method="post" enctype="multipart/form-data">
         <label for="nickname">Nickname</label>
-        <input type="text" name="nickname" id="nickname" value="<%= usreDetails.nickname %>" />
+        <input type="text" name="nickname" id="nickname" value="<%= userDetails.nickname %>" />
 
         <label for="avatarUrl">Аватар</label>
         <input type="text" name="avatarUrl" id="avatarUrl" />
 
-        <label for="about">Что то о себе</label>
-        <textarea name="about" id="about"><%= userdetalis.about %></textarea>
+        <label for="about">Что-то о себе</label>
+        <textarea name="about" id="about"><%= userDetails.about %></textarea>
 
-        <label for="avatarUrl"> Что то сюда добавить</label>
-        <% if (userDetalis.avatarUrl) { %>
-          <img src="<%= userDetails.avatarUrl %>" alt="Current Avatar">
-          <% } else { %>
-        <p>No avatar uploaded</p>
-    <% } %>
+        <label for="avatarUrl">Что-то сюда добавить</label>
+        <% if (userDetails.avatarUrl) { %>
+            <img src="<%= userDetails.avatarUrl %>" alt="Current Avatar">
+        <% } else { %>
+            <p>No avatar uploaded</p>
+        <% } %>
 
         <button type="submit">Добавить/обновить данные</button>
     </form>
-    
 </body>
 </html>

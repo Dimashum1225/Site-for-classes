@@ -8,7 +8,7 @@ const { fstat } = require('fs');
 const user = require('../models/user');
 
 function checkAuth(req, res, next) {
-    if (!req.session.user || (req.session.user.role !== 'admin' && req/ session.user.role !== 'user')) {
+    if (!req.session.user || (req.session.user.role !== 'admin' && req.session.user.role !== 'user')) {
         return res. redirect('/login');
     }
     next();
@@ -40,9 +40,9 @@ const upload = multer({
 }).single('avatar');
 
 router.get('/', (req, res) => {
-    if (!req.session.user || req.session.user.role !== 'admin') {
-        return res.redirect('/login');
-    }
+    // if (!req.session.user || req.session.user.role !== 'admin') {
+    //     return res.redirect('/login');
+    // }
     res.render('dashboard', { session: req.session });
 });
 
@@ -138,3 +138,4 @@ router.post('/profile/:id/delete-avatar', async (req, res) => {
 
 
 module.exports = router;
+
