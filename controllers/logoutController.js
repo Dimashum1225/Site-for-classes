@@ -1,13 +1,18 @@
-async function logout(req,res){
-    req.session.destroy(function(err){
-        if(err){
-            console.log(err);
-        }else{
-            res.redirect('/login')
+// Асинхронная функция для выхода пользователя из системы
+async function logout(req, res) {
+    // Уничтожение сеанса пользователя (сессии)
+    req.session.destroy(function (err) {
+        // Проверка наличия ошибок при уничтожении сессии
+        if (err) {
+            console.log(err); // Логирование ошибки, если она есть
+        } else {
+            // Перенаправление пользователя на страницу входа после успешного выхода
+            res.redirect('/login');
         }
     });
 }
 
-module.exports={
+// Экспорт функции выхода для использования в других частях приложения
+module.exports = {
     logout
 };
