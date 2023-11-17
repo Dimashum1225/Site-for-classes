@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit news</title>
+</head>
+<body>
+    <h1>Edit News</h1>
+    <ul>
+        <% news.forEach(function(item) { %>
+        <li>
+            <h2><%= item.title %></h2>
+            <p><%= item.category %></p>
+            <p><%= item.description %></p>
+            <img src="<%= item.poster %>" alt="<%= item.title %>">
+            <form method="POST" action="/views/delete-news/<%= item._id %>">
+                <button type="submit">Delete</button>
+            </form>            
+            <a href="/views/edit-news/<%= item._id %>">Edit</a>
+        </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

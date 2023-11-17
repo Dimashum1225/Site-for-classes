@@ -10,6 +10,8 @@
     <h1>Hello Admin</h1>
     <a href="/dashboard/user-data">Add User Data</a>
     <a href="/dashboard/profile/<%= session.user._id %>">View Profile</a>
+    <a href="/dashboard/add-news">Add news</a>
+    <a href="/dashboard/edit-news">Edit-news</a>
     <% } else if (session.user && session.user.role === 'user') { %>
     <!-- Ваш код для пользователя -->
     <% } else { %>
