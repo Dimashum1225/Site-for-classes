@@ -1,0 +1,92 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+  header {
+    text-align: center;
+    padding-top: 50px;
+  }
+  header h1 {
+    font-size: 3em;
+    color: #2c3e50;
+  }
+  header p {
+    font-size: 1.2em;
+    color: #555;
+  }
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+    overflow: hidden;
+  }
+  .main-content section {
+    width: 30%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .main-content h2 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  .main-content ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .main-content li {
+    padding: 10px 0;
+  }
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #2c3e50;
+    color: #fff;
+  }
+  footer p {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  /* Стили для контейнера изображений */
+.image-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* Стили для каждого блока с изображением и подписью */
+.image-item {
+  text-align: center;
+}
+
+/* Стили для изображений */
+.image-one,
+.image-two,
+.image-three {
+  width: 200px; /* Устанавливаем одинаковую ширину для всех изображений */
+  height: auto; /* Высота автоматически подстраивается */
+  border: 1px solid #ddd; /* Добавляем рамку для стилизации */
+  border-radius: 5px; /* Закругляем углы */
+  margin-bottom: 10px; /* Отступ между изображениями */
+}
+
+/* Стили для подписей */
+.caption {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+

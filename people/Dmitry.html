@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница славы</title>
+  <link rel="stylesheet" href="people_style.css">
+  <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 1em;
+        }
+
+        nav img {
+            margin-right: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content li {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content li:hover {
+            background-color: #f1f1f1;
+        }
+        * { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #f2f2f2;
+}
+header {
+  background: white;
+  text-align: center;
+}
+header a {
+  text-decoration: none;
+  outline: none;
+  display: block;
+  transition: .3s ease-in-out;
+}
+.logo {
+  color: #D5B45B;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5em;
+  padding: 20px 0;
+}
+nav {
+  display: table;
+  margin: 0 auto;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.topmenu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.topmenu > li {
+  width: 25%;
+  float: left;
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+}
+.topmenu > li > a {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  color: #404040;
+  padding: 15px 30px;
+}
+.topmenu li a:hover { color: #D5B45B; }
+.submenu-link:after {
+  content: "\f107";
+  font-family: "FontAwesome";
+  color: inherit;
+  margin-left: 10px;
+}
+.submenu {
+  background: #273037;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 5;
+  width: 180px;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  transition: .5s ease-in-out;
+}
+.submenu a {
+  color: white;
+  text-align: left;
+  padding: 12px 15px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.submenu li:last-child a { border-bottom: none; }
+.topmenu > li:hover .submenu {
+  opacity: 1;
+  transform: scaleY(1);
+}
+  </style>
+</head>
+<body>
+ <nav>
+  <ul class="topmenu">
+    <li><img src="/фото4.ico" alt="EternaTwist" style="height: 50px;">
+      </li><li><a href="/">Главная страница</a></li>
+      <li><a href="">Участники</a></li>
+      <li><a href="">О разработчиках</a>
+         <ul class="submenu">
+      <li><a href="/people/Dmitry.html">Dmitry</a></li>
+       <li><a href="/people/Sergey.html">Sergey</a></li>
+       <li><a href="/people/Nurlan.html">Nurlan</a></li>
+       </ul>
+      </li>
+      <li><a href="">Новости</a>    </li>
+      <li><a href="">Должности</a></li>
+      <li>
+        <a href="/logout">Выход</a>
+        
+        </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <header>
+
+      <div class="image-container">
+        <div class="image-item">
+        <img class="image-one" src="/people/я.jpg" alt="">
+          <h2>Это я</h2>
+        </div>
+        <div class="image-item">
+          
+         <img class = "image-two" src="./Даниил.jpg" alt="">
+         <h2>Это мой брат</h2>
+        </div>
+        <div class="image-item">
+          
+         <img class="image-three" src="./я и он.jpg" alt="">
+         <h2>А это мы вдвоем</h2>
+        </div>
+
+      </div>
+
+      <h1>Дмитрий</h1>
+      <p>Python,JavaScript,C# developer</p>
+    </header>
+    <div class="main-content">
+      <section>
+        <h2>Опыт работы</h2>
+        <ul>
+          <li>Kwork<br>Парсинг Данных<br>2022</li>
+          <!-- Добавьте другие пункты по мере необходимости -->
+        </ul>
+      </section>
+      <section>
+        <h2>Образование</h2>
+        <ul>
+          <li>CATEC ЦАТЭК Центрально азиатский технико-экономический колледж<br>Разработчик программного обеспечения<br>2025</li>
+          <!-- Добавьте другие пункты по мере необходимости -->
+        </ul>
+      </section>
+      <section>
+        <h2>Навыки</h2>
+        <ul>
+          <li>Все умею</li>
+          <li>Все могу</li>
+          <li>а что не умею и не могу, тому научусь</li>
+          <!-- Добавьте другие навыки по мере необходимости -->
+        </ul>
+      </section>
+    </div>
+    <footer>
+      <p>Контактная информация: sprosite_sami@example.com | Телефон: +123456789</p>
+    </footer>
+  </div>
+</body>
+</html>
