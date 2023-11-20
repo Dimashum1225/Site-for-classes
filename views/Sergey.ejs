@@ -6,42 +6,156 @@
   <title>Страница славы</title>
 
   <style>
-   
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  background-image:url('/public/blue\ red.jpg')
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px;
+  
+}
+
+header {
+  text-align: center;
+  padding-top: 50px;
+  padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(45 171 193);
+  
+}
+
+header h1 {
+  font-size: 3em;
+  color: rgb(45 171 193);
+}
+
+header p {
+  font-size: 1.2em;
+  color: rgb(45 171 193);
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 5px;
+  overflow: hidden;
+}
+
+.main-content section {
+  width: 30%;
+  background: #333;
+  color: rgb(45 171 193);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(45 171 193);
+  
+}
+
+.main-content h2 {
+  font-size: 2em;
+  color: rgb(45 171 193);
+  margin-bottom: 20px;
+}
+
+.main-content ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.main-content li {
+  padding: 10px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background: #333;
+  color:  rgb(45 171 193);
+}
+
+footer p {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.image-item {
+  text-align: center;
+  width: 200px;
+  color: rgb(45 171 193);
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgb(45 171 193);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgb(45 171 193)
+}
+
+
+
   </style>
+   
+
 </head>
 <body>
+  <%- include('./header.ejs') %>
+  <div class="image-container">
+  <div class="image-item">
+    <img class="image-one" src="/public/Serega.jpeg" alt="">
+      <h2>Это я</h2>
+    </div>
+  </div>
   <div class="container">
     <header>
-      <h1>Ваше Имя</h1>
-      <p>Должность</p>
+      <h1>Сергей</h1>
+      <p>JavaScript, HTML, Developer</p>
     </header>
     <div class="main-content">
       <section>
         <h2>Опыт работы</h2>
         <ul>
-          <li>Название компании<br>Должность<br>Дата начала - Дата окончания</li>
+          <li><br><br></li>
           <!-- Добавьте другие пункты по мере необходимости -->
         </ul>
       </section>
       <section>
         <h2>Образование</h2>
         <ul>
-          <li>Название учебного заведения<br>Степень / Специализация<br>Год окончания</li>
+          <li>ЦАТЭК-Центральноазиатский технико-экономический колледж <br>Разработчик программного обеспечения<br>2025</li>
           <!-- Добавьте другие пункты по мере необходимости -->
         </ul>
       </section>
       <section>
         <h2>Навыки</h2>
         <ul>
-          <li>Навык 1</li>
-          <li>Навык 2</li>
-          <li>Навык 3</li>
+          <li></li>
+          <li></li>
+          <li></li>
           <!-- Добавьте другие навыки по мере необходимости -->
         </ul>
       </section>
     </div>
     <footer>
-      <p>Контактная информация: email@example.com | Телефон: +123456789</p>
+      <p>Контактная информация: | Телефон: +7 777 687 7111</p>
     </footer>
   </div>
 </body>

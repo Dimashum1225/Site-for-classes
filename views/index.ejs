@@ -2,20 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-   
-    <title>Document</title>
+    <title>Интересный мир интернета</title>
     <style>
-    body {
-        width: 80%;
-        margin: auto; /* Центрирование контента */
-      }
-      </style>
-</head>
-<body>
-    <%- include('./header.ejs') %>
-    <h1>Главная страница</h1>
-    <p>Добро пожаловать на главную страницу</p>
-    <%- include('./footer.ejs') %>
+        body {
+            width: 80%;
+            margin: auto;
+            background-color: #f0f8ff; /* Голубой цвет фона */
+            color: #333;
+            line-height: 1.6;
+            background-image: url('/public/space.jpg');
+        }
 
+        header {
+            background-color: rgb(45 171 193); /* Зеленый цвет заголовка */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(45 171 193);
+        }
+
+        h1 {
+            background-color: #333;
+            color: rgb(45 171 193);
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+
+        section {
+            background-color: #273037;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(45 171 193);
+        }
+
+        .benefits {
+            color: #4caf50;
+        }
+
+        .fun-facts {
+            color: #f44336; /* Красный цвет заголовка раздела */
+        }
+
+        footer {
+            background-color: #333; /* Темно-серый цвет футера */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        p{
+            color: rgb(45 171 193);
+        }
+        ul{
+            color: rgb(45 171 193);
+        }
+        li{
+            color: rgb(45 171 193);
+        }
+    </style> 
+</head>
+<%- include('./header.ejs') %>
+<body>
+    
+    <header>
+        <h1>Интересный мир интернета</h1>
+    </header>
+
+    <section>
+        <h2 class="benefits">Преимущества использования интернета</h2>
+        <p>Интернет — это не просто средство связи, но и мощный инструмент, который принес множество пользы в различных сферах жизни:</p>
+        <ul>
+            <li>Быстрый доступ к информации из любой точки мира.</li>
+            <li>Возможность обучения онлайн и получения новых знаний.</li>
+            <li>Удобство в работе и бизнесе благодаря онлайн-платформам.</li>
+            <li>Обмен опытом и общение с людьми со всего мира.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="fun-facts">Интересные факты об интернете</h2>
+        <p>Знаете ли вы, что:</p>
+        <ul>
+            <li>Слово "интернет" произошло от фразы "интернет сетей"?</li>
+            <li>Первый веб-сайт был создан в 1991 году Тимом Бернерс-Ли?</li>
+            <li>Больше половины мира имеет доступ к интернету?</li>
+            <li>Ежедневно в интернете создается миллиарды запросов?</li>
+        </ul>
+    </section>
+ 
 </body>
+<%- include('./footer.ejs') %>
 </html>
