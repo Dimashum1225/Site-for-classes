@@ -25,17 +25,28 @@ app.use(session({
 }));
 
 app.use('/', routes);
+app.use(express.static('public'));
+app.use('/public', express.static('public'));
 app.use('/css', express.static(path.join(__dirname, 'public', 'css')));
 app.use('/img/avatars', express.static(path.join(__dirname, 'public', 'image', 'avatars')));
 app.use('/uploads', express.static(path.join(__dirname, 'public', 'uploads')));
 
 // Добавление папки 'views' как статической директории
-app.use('/people', express.static(path.join(__dirname, 'people')));
+
 
 
 app.get('/', (req, res) => {
     res.render('index', { session: req.session });
 });
+app.get('/Dmitry',(req,res)=>{
+    res.render('Dmitry',{ session: req.session });
+})
+app.get('/Nurlan',(req,res)=>{
+    res.render('Nurlan',{ session: req.session });
+})
+app.get('/Sergey',(req,res)=>{
+    res.render('Sergey',{ session: req.session });
+})
 
 app.get('/register', (req, res) => {
     res.render('register');

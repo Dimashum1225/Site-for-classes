@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница славы</title>
+
+  <style>
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  padding-top: 50px;
+  padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(45 171 193);
+  
+}
+
+header h1 {
+  font-size: 3em;
+  color: #2c3e50;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 5px;
+  overflow: hidden;
+}
+
+.main-content section {
+  width: 30%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(45 171 193);
+  
+}
+
+.main-content h2 {
+  font-size: 2em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.main-content ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.main-content li {
+  padding: 10px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background: #333;
+  color:  rgb(45 171 193);
+}
+
+footer p {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.image-item {
+  text-align: center;
+  width: 200px;
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+
+  </style>
+   
+
+</head>
+<body>
+  <%- include('./header.ejs') %>
+  <div class="image-container">
+  <div class="image-item">
+    <img class="image-one" src="/public/Nureke.jpg" alt="">
+      <h2>Это я</h2>
+    </div>
+  </div>
+  <div class="container">
+    <header>
+      <h1>Нурлан</h1>
+      <p>JavaScript, HTML, Developer</p>
+    </header>
+    <div class="main-content">
+      <section>
+        <h2>Опыт работы</h2>
+        <ul>
+          <li>Барбершоп Vidok<br>Администратор<br>2023</li>
+          <!-- Добавьте другие пункты по мере необходимости -->
+        </ul>
+      </section>
+      <section>
+        <h2>Образование</h2>
+        <ul>
+          <li>ЦАТЭК-Центральноазиатский технико-экономический колледж <br>Разработчик программного обеспечения<br>2025</li>
+          <!-- Добавьте другие пункты по мере необходимости -->
+        </ul>
+      </section>
+      <section>
+        <h2>Навыки</h2>
+        <ul>
+          <li>Легко завожу общение </li>
+          <li>Деловой этикет</li>
+          <li>Клиентоориентированность</li>
+          <!-- Добавьте другие навыки по мере необходимости -->
+        </ul>
+      </section>
+    </div>
+    <footer>
+      <p>Контактная информация: nurlanalimzhanov9@gmail.com | Телефон: +7 707 278 6833</p>
+    </footer>
+  </div>
+</body>
+</html>

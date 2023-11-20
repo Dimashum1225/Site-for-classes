@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница славы</title>
+  
+  <style>
+ 
+ body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+  header {
+    text-align: center;
+    padding-top: 50px;
+  }
+  header h1 {
+    font-size: 3em;
+    color: #2c3e50;
+  }
+  header p {
+    font-size: 1.2em;
+    color: #555;
+  }
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+    overflow: hidden;
+  }
+  .main-content section {
+    width: 30%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .main-content h2 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  .main-content ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .main-content li {
+    padding: 10px 0;
+  }
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #2c3e50;
+    color: #fff;
+  }
+  footer p {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  /* Стили для контейнера изображений */
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Стили для каждого блока с изображением и подписью */
+.image-item {
+    text-align: center;
+    width: 200px; /* Устанавливаем ширину блока */
+}
+
+
+.image-item img {
+    width: 100%; /* Заполняем всю доступную ширину блока */
+    height: auto; /* Высота автоматически подстраивается */
+    border: 1px solid #ddd; /* Добавляем рамку для стилизации */
+    border-radius: 5px; /* Закругляем углы */
+    margin-bottom: 10px; /* Отступ межд*/
+}
+  </style>
+</head>
+<body>
+  <%- include('./header.ejs') %>
+  <div class="container">
+    <header>
+
+      <div class="image-container">
+        <div class="image-item">
+        <img class="image-one" src="/public/я.jpg" alt="">
+          <h2>Это я</h2>
+        </div>
+        <div class="image-item">
+          
+         <img class = "image-two" src="/public/Даниил.jpg" alt="">
+         <h2>Это мой брат</h2>
+        </div>
+        <div class="image-item">
+          
+         <img class="image-three" src="/public/я и он.jpg" alt="">
+         <h2>А это мы вдвоем</h2>
+        </div>
+
+      </div>
+
+      <h1>Дмитрий</h1>
+      <p>Python,JavaScript,C# developer</p>
+    </header>
+    <div class="main-content">
+      <section>
+        <h2>Опыт работы</h2>
+        <ul>
+          <li>Kwork<br>Парсинг Данных<br>2022</li>
+          <!-- Добавьте другие пункты по мере необходимости -->
+        </ul>
+      </section>
+      <section>
+        <h2>Образование</h2>
+        <ul>
+          <li>CATEC ЦАТЭК Центрально азиатский технико-экономический колледж<br>Разработчик программного обеспечения<br>2025</li>
+          <!-- Добавьте другие пункты по мере необходимости -->
+        </ul>
+      </section>
+      <section>
+        <h2>Навыки</h2>
+        <ul>
+          <li>Все умею</li>
+          <li>Все могу</li>
+          <li>а что не умею и не могу, тому научусь</li>
+          <!-- Добавьте другие навыки по мере необходимости -->
+        </ul>
+      </section>
+    </div>
+    <footer>
+      <p>Контактная информация: sprosite_sami@example.com | Телефон: +123456789</p>
+    </footer>
+  </div>
+</body>
+</html>

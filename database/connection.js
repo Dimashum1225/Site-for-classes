@@ -2,7 +2,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 async function connectToMongoDB() {
   try {
-    const uri = ;
+    const uri = "mongodb+srv://sumatbaev7:96185385@cluster0.iorfuh2.mongodb.net/mysite";
     const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,

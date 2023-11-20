@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            
         }
 
         nav {
@@ -63,10 +64,7 @@
             background-color: #f1f1f1;
         }
         * { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: #f2f2f2;
-}
+
 header {
   background: white;
   text-align: center;
@@ -98,7 +96,7 @@ nav ul {
   clear: both;
 }
 .topmenu > li {
-  width: 25%;
+  
   float: left;
   position: relative;
   font-family: 'Open Sans', sans-serif;
@@ -107,8 +105,8 @@ nav ul {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: bold;
-  color: #404040;
-  padding: 15px 30px;
+  color:  rgb(45 171 193);
+  padding: 15px;
 }
 .topmenu li a:hover { color: #D5B45B; }
 .submenu-link:after {
@@ -150,24 +148,25 @@ nav ul {
 
          
                 <ul class="topmenu">
-                <li><img src="/фото4.ico" alt="EternaTwist" style="height: 50px;">
-                  </li><li><a href="">Главная страница</a></li>
-                  <li><a href="">Участники</a></li>
-                  <li><a href="">О разработчиках</a>
+                  <link rel="icon" type="image/x-icon" href="/фото4.ico" alt="EternaTwist">
+
+                  </li><li><a href="/">Главная страница</a></li>
+                  <li><a href="#">Участники</a></li>
+                  <li><a href="#">О разработчиках</a>
                      <ul class="submenu">
-                  <li><a href="/people/Dmitry.html">Dmitry</a></li>
-                   <li><a href="/people/Sergey.html">Sergey</a></li>
-                   <li><a href="/people/Nurlan.html">Nurlan</a></li>
+                  <li><a href="/Dmitry">Dmitry</a></li>
+                   <li><a href="/Sergey">Sergey</a></li>
+                   <li><a href="/Nurlan">Nurlan</a></li>
                    </ul>
                   </li>
                   <li><a href="">Новости</a>    </li>
                   <li><a href="">Должности</a></li>
-                  <li><% if (session && session.isAuthenticated) { %>
-                    <a href="/logout">Выход</a>
-                    <% }else{ %>
-                        <a href="/login">Вход</a>
-                        <a href="/register">Регистрация</a>
-                    <% } %></li>
+                    <li><% if (session && session.isAuthenticated) { %>
+                      <a href="/logout">Выход</a>
+                      <% }else{ %>
+                          <a href="/login">Вход</a>
+                          <a href="/register">Регистрация</a>
+                      <% } %></li>
                 </ul>
               
            

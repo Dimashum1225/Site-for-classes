@@ -58,35 +58,3 @@ body {
     margin: 0;
     font-size: 1.2em;
   }
-  /* Стили для контейнера изображений */
-.image-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 20px 0;
-}
-
-/* Стили для каждого блока с изображением и подписью */
-.image-item {
-  text-align: center;
-}
-
-/* Стили для изображений */
-.image-one,
-.image-two,
-.image-three {
-  width: 200px; /* Устанавливаем одинаковую ширину для всех изображений */
-  height: auto; /* Высота автоматически подстраивается */
-  border: 1px solid #ddd; /* Добавляем рамку для стилизации */
-  border-radius: 5px; /* Закругляем углы */
-  margin-bottom: 10px; /* Отступ между изображениями */
-}
-
-/* Стили для подписей */
-.caption {
-  font-size: 14px;
-  color: #666;
-  margin: 5px 0;
-}
-
-
