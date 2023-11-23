@@ -41,6 +41,7 @@ app.get('/', (req, res) => {
 app.get('/Dmitry',(req,res)=>{
     res.render('Dmitry',{ session: req.session });
 })
+  
 app.get('/Nurlan',(req,res)=>{
     res.render('Nurlan',{ session: req.session });
 })

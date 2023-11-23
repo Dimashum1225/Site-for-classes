@@ -1,30 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add News</title>
+    <title>Добавить новость</title>
+   <style>
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/public/фон\ профиль.jpeg');
+}
+
+
+.add-news-container {
+    width: 80%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.add-news-heading {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.add-news-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-label {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-input {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #2980b9;
+}
+
+   </style>
 </head>
 <body>
     <% if (session.user && session.user.role === 'admin') { %>
-        <h1>Add news</h1>
-        <form method="POST" action="/dashboard/add-news" enctype="multipart/form-data">
-            <label for="title">Title</label>
-            <input type="text" name="title" required>
-            <br>
-            <label for="category">Category</label>
-            <input type="text" name="category" required>
-            <br>
-            <label for="description">Description</label>
-            <textarea name="description" rows="5" required></textarea>
-            <br>
-            <label for="poster">Poster</label>
-            <input type="file" name="poster" required>
-            <br>
-            <button type="submit">Add news</button>
-        </form>
+        <div class="add-news-container">
+            <h1 class="add-news-heading">Добавить новость</h1>
+            <form method="POST" action="/dashboard/add-news" enctype="multipart/form-data" class="add-news-form">
+                <label for="title" class="form-label">Заголовок</label>
+                <input type="text" name="title" class="form-input" required>
+                <br>
+                <label for="category" class="form-label">Категория</label>
+                <input type="text" name="category" class="form-input" required>
+                <br>
+                <label for="description" class="form-label">Описание</label>
+                <textarea name="description" rows="5" class="form-input" required></textarea>
+                <br>
+                <label for="poster" class="form-label">Постер</label>
+                <input type="file" name="poster" class="form-input" required>
+                <br>
+                <button type="submit" class="submit-button">Добавить новость</button>
+            </form>
+        </div>
     <% } else { %>
-        <h1>Please Login as Admin to Add News</h1>
+        <div class="add-news-container">
+            <h1 class="add-news-heading">Пожалуйста, войдите как Администратор для добавления новостей</h1>
+        </div>
     <% } %>
 </body>
 </html>
