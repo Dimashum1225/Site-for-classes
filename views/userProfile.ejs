@@ -1,27 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>Профиль пользователя</title>
+    <style>
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    background-image: url('/public/фон\ профиль.jpeg');
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.info {
+    margin-bottom: 10px;
+}
+
+.avatar-section {
+    text-align: center;
+}
+
+.avatar {
+    max-width: 300px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.delete-avatar-btn {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-avatar-btn:hover {
+    background-color: #c0392b;
+}
+
+
+    </style>
 </head>
 <body>
-    <h1>User Profile</h1>
-    <p>Nickname: <%= userDetails.nickname %></p>
-    <p>About: <%= userDetails.about %></p>
-    <% if (userDetails.avatarUrl) { %>
-        <img src="<%= userDetails.avatarUrl %>" alt="User Avatar" />
-        <form id="delete-avatar-form" action="/dashboard/profile/<%= userDetails.user._id %>/delete-avatar" method="post">
-            <button type="submit">Delete Avatar</button>
-        </form>
-    <% } else { %>
-        <p>Avatar not added yet</p>
-    <% } %>
+    <div class="container">
+        <h1>Профиль пользователя</h1>
+        <div class="profile-info">
+            <p>Никнейм: <%= userDetails.nickname %></p>
+            <p>О себе: <%= userDetails.about %></p>
+            <% if (userDetails.avatarUrl) { %>
+                <img src="<%= userDetails.avatarUrl %>" alt="Аватар пользователя" />
+                <form id="delete-avatar-form" action="/dashboard/profile/<%= userDetails.user._id %>/delete-avatar" method="post">
+                    <button type="submit">Удалить аватар</button>
+                </form>
+            <% } else { %>
+                <p>Аватар не добавлен</p>
+            <% } %>
+        </div>
+    </div>
 
     <script>
         const deleteForm = document.querySelector('#delete-avatar-form');
         deleteForm.addEventListener('submit', (event) => {
-            const confirmDelete = confirm('Are you sure you want to delete the avatar?');
+            const confirmDelete = confirm('Вы уверены, что хотите удалить аватар?');
             if (!confirmDelete) {
                 event.preventDefault();
             }

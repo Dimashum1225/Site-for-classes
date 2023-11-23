@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
+          
             padding: 0;
             box-sizing: border-box;
         }
@@ -64,7 +64,7 @@
         * { box-sizing: border-box; }
 
 header {
-  background: white;
+  background: #333;
   text-align: center;
   margin: 0; /* Добавьте эту строку для удаления отступов */
   padding: 0; /* Добавьте эту строку для удаления отступов */
@@ -163,10 +163,13 @@ nav ul {
                   <li><a href="/Dmitry">Dmitry</a></li>
                    <li><a href="/Sergey">Sergey</a></li>
                    <li><a href="/Nurlan">Nurlan</a></li>
+                   <li><a href="/Aleksandr">Aleksandr</a></li>
                    </ul>
                   </li>
-                  <li><a href="">Новости</a>    </li>
                   <li><a href="">Должности</a></li>
+                  <li><a href="/dashboard">Личный кабинет</a>    </li>
+                 
+
                     <li><% if (session && session.isAuthenticated) { %>
                       <a href="/logout">Выход</a>
                       <% }else{ %>
